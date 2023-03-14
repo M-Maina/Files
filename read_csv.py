@@ -1,4 +1,7 @@
 import csv
+import pandas as pd
+
+
 
 def display_csv_reader():
     with open('monster.csv') as f:
@@ -8,10 +11,15 @@ def display_csv_reader():
             
             
 def display_csv_reader_dict():
-    with open('monsters.csv') as f:
+    with open('monster.csv') as f:
         dictReader = csv.DictReader(f, delimeter=',')
         for row in dictReader:
             print(row["monsterName"] + "is priced at " + row["price"])
+            
+            
+def display_csv_pandas():
+    df = pd.read_csv('monster.csv')
+    print(df)
             
             
             
