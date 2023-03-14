@@ -23,14 +23,31 @@ def display_entries_in_directory(directory):
             print("NAME: ", entry.name)
             info = entry.stat()
             print("Creation Time:", formt_datetime(info.st_ctime))
+            print("Last Access Time:", format_datetime(info.st_ctime))
+            print("Size: ", info.st_size)
             
+            
+def display_directories(directory):
+    with os.scandir(directory) as entries:
+        for entry in entries:
+            if entry.is_dir():
+                print("Directory Name: ", entry.name)
+                
+                
+def display_files(directory):
+    with os.scandir(directory) as entries:
+        for entry in entries:
+            if entry.is_file():
+                print("File Name: ", entry.name)
     
     
-    
+
+
+
     
     
 if __name__ == "__main__":
     # display_cwd()
     # up_one_directory_level()
     # display_cwd()
-    format_datetime()
+   di
